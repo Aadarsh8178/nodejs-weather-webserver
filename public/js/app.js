@@ -15,7 +15,7 @@ weatherForm.addEventListener('submit',(e)=>{
             messagetwo.textContent = ''
         } else{
             messageone.textContent = 'location is '+data.location
-            messagetwo.textContent = data.summary+'.Temperature is '+data.temperature+' degree celcius With '+data.rain_probability+'% chances of rain.'
+            messagetwo.textContent = data.summary+'.Temperature is '+data.temperature+' degree celcius With '+data.rain_probability+'% chances of rain.'+' Highest Temperature recorded for the day is '+data.temperatureHigh+' degree celcius ,lowest temperature recorded is '+data.temperatureLow+'.Information is gathered from timezone '+ data.timezone+'.'
         }
     })
 })

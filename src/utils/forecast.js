@@ -13,7 +13,9 @@ const forecast = (latitude,longitude,callback)=>{
              summary : body.daily.data[0].summary,
              temperature : body.currently.temperature,
              rain_probability : body.currently.precipProbability,
-             timezone :body.timezone
+             timezone :body.timezone,
+             temperatureHigh : body.daily.data[0].temperatureHigh,
+             temperatureLow : body.daily.data[0].temperatureLow
          })
     }
 

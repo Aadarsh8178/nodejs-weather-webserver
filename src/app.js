@@ -35,7 +35,7 @@ app.get('/about',(req,res)=>{
 app.get('/help',(req,res)=>{
     res.render('help',{
         title:'Help',
-        message:"Enter your location without , if it is not finding the location",
+        message:"Enter your location without ',' if it is not finding the location",
         name : 'Aadarsh'
     })
 })
@@ -51,7 +51,7 @@ app.get('/weather',(req,res)=>{
             return res.send(error)
         }
     
-        forecast(latitude,longitude,(error,{summary,temperature,rain_probability,timezone}={})=>{
+        forecast(latitude,longitude,(error,{summary,temperature,rain_probability,timezone,temperatureHigh,temperatureLow}={})=>{
             if(error){
                return res.send(error)
             }
@@ -61,7 +61,9 @@ app.get('/weather',(req,res)=>{
                 rain_probability,
                 location,
                 timezone,
-                address:req.query.address
+                address:req.query.address,
+                temperatureHigh,
+                temperatureLow
             })
         })
     })
