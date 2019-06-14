@@ -1,5 +1,6 @@
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
+const message = document.querySelector('#message-1')
 const messageone = document.querySelector('#message-1')
 const messagetwo = document.querySelector('#message-2')
 weatherForm.addEventListener('submit',(e)=>{
@@ -7,6 +8,7 @@ weatherForm.addEventListener('submit',(e)=>{
     e.preventDefault()
     messageone.textContent = 'Loading...'
     messagetwo.textContent = ''
+    message.textContent = ''
 
     fetch('/weather?address='+ search.value).then((response)=>{
     response.json().then((data)=>{
@@ -16,6 +18,7 @@ weatherForm.addEventListener('submit',(e)=>{
         } else{
             messageone.textContent = 'location is '+data.location
             messagetwo.textContent = data.summary+'.Temperature is '+data.temperature+' degree celcius With '+data.rain_probability+'% chances of rain.'+' Highest Temperature recorded for the day is '+data.temperatureHigh+' degree celcius ,lowest temperature recorded is '+data.temperatureLow+'.Information is gathered from timezone '+ data.timezone+'.'
+            message.textContent = 'As you are there it must be hot out there but for the sake of the numbers '
         }
     })
 })
